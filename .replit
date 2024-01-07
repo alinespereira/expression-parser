@@ -1,4 +1,4 @@
-run = "{ echo main ; cat - ; } | exec ghci Main.hs"
+run = "{ echo main ; cat - ; } | cabal run"
 entrypoint = "Main.hs"
 
 hidden = [".ghci", "ghci_wrapper.sh"]
