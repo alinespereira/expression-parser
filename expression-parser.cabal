@@ -47,6 +47,7 @@ test-suite expression-parser-test
                     , shared-properties
     other-modules:    SpecHelper
                     , TokenizerSpec
+                    , Parser.ShuntingYardSpec
     type:             exitcode-stdio-1.0
     hs-source-dirs:   test
     main-is:          Spec.hs

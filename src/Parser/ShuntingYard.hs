@@ -17,6 +17,7 @@ parse' (t :<| ts) stack
   | isValue t || isIdentifier t = t <| parse' ts stack
   | isOperation t = parseOp t ts stack
   | otherwise = undefined
+
 -- parse' [] (op : ops) = (parse' [] ops) ++ [Operation op]
 -- parse' (t@(Value _) : ts) ops = t : parse' ts ops
 -- parse' (t@(Identifier _) : ts) ops = t : parse' ts ops
@@ -29,6 +30,6 @@ parse' (t :<| ts) stack
 parseOp :: Token -> Seq Token -> Stack -> Stack
 parseOp t@(Operation _) ts stack@Empty = parse' ts (t <| stack)
 parseOp t@(Operation _) ts stack@(op :<| ops)
-  | t < op = op <| parse' (t <| ts) ops
+  | t <= op = op <| parse' (t <| ts) ops
   | otherwise = parse' ts (t <| stack)
 parseOp _ _ _ = error "Not implemented"
