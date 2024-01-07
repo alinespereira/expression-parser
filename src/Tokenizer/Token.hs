@@ -10,6 +10,10 @@ data Token
   | Identifier String
   deriving (Show, Eq)
 
+instance Ord Token where
+  compare (Operation op1) (Operation op2) = compare op1 op2
+  compare _ _ = GT
+
 isValue :: Token -> Bool
 isValue (Value _) = True
 isValue _ = False

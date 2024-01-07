@@ -19,6 +19,9 @@ instance Read Operator where
       '^' -> [(Power, rest)]
       _ -> error "Not a valid operator"
 
+instance Ord Operator where
+  compare op1 op2 = compare (precedence op1) (precedence op2)
+
 operators :: [Char]
 operators = ['+', '-', '*', '/', '^']
 

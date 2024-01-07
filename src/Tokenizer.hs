@@ -1,10 +1,9 @@
 module Tokenizer where
 
 import Data.Char
-import Data.List (elem)
 import Data.Sequence
 import Tokenizer.Delimiter (delimiters)
-import Tokenizer.Operator (Operator, operators)
+import Tokenizer.Operator (operators)
 import Tokenizer.Token
 
 tokenize :: String -> Seq Token
